@@ -1,0 +1,12 @@
+<aside class="widget widget_categories">
+    <h3 class="widget-title">
+        <span>Categories</span>
+    </h3>
+    <ul>
+        {% for c in categories %}
+            <li class="cat-item cat-item-{{ c.id }}">
+                <a href="{{ c.slug }}">{{ c.name }}</a> {#({{ c.count }})#}
+            </li>
+        {% endfor %}
+    </ul>
+</aside>

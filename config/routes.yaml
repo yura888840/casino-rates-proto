@@ -1,0 +1,36 @@
+# These lines define a route using YAML configuration. The controller used by
+# the route (FrameworkBundle:Template:template) is a convenient shortcut when
+# the template can be rendered without executing any logic in your own controller.
+# See https://symfony.com/doc/current/templates.html#rendering-a-template-directly-from-a-route
+#homepage:
+#    path: /{_locale}
+#    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+#    requirements:
+#        _locale: '%app_locales%'
+#    defaults:
+#        template: default/homepage.html.twig
+#        _locale: '%locale%'
+
+homepage:
+    path: /{_locale}
+    controller: App\Controller\IndexController::__invoke
+    requirements:
+            _locale: '%app_locales%'
+    defaults:
+        template: default/homepage.html.twig
+        _locale: '%locale%'
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /connect
+
+hwi_oauth_connect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+    prefix:   /connect
+
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix:   /login
+
+kms_froala_editor:
+    resource: '@KMSFroalaEditorBundle/Resources/config/routing.yml'
+    prefix:   /froalaeditor
